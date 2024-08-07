@@ -740,3 +740,167 @@ let numberClusters = [[1,2], [3,4], [5,6]];
 
 const target = numberClusters[2][1];
 console.log(target);
+
+
+
+
+// Learning about loops and their syntax
+
+
+// Create the variable vacationSpots, and assign its value to an array of three strings naming places you’d like to visit.
+// Next, console.log() each item in vacationSpots. Since we don’t know loops yet, we have to console.log() each element in the array separately.
+// Nice work! Now imagine that the vacation list had 100 places on it— logging each array element to the console by hand would be a tedious task! In the next exercise, we will learn how to make things more efficient with for loops.
+let vacationSpots = ['Accra', 'Kumasi', 'Wa'];
+
+console.log(vacationSpots[0]);
+console.log(vacationSpots[1]);
+console.log(vacationSpots[2]);
+
+
+// Now, make your own! Create a program that loops from 5 to 10 and logs each number to the console.       When writing/changing loops, there is a chance that our stopping condition isn’t met and we get a dreaded infinite loop which essentially stops our programming from running anything else! To exit out of an infinite loop in an exercise, refresh the page - then fix the code for your loop.
+for (let i = 5; i < 11; i++) {
+  console.log(i);
+}
+
+//self practice
+for (let counter = 0; counter < 4; counter++){
+  console.log(counter);
+}
+//self practice
+
+let firstName = ['Derreck', 'Derrode', 'Rose', 'Ama', 'Soul']
+for(i = 0; i < 5; i++){
+  // console.log(i);
+  console.log(firstName[i]);
+}
+
+
+
+// Make a for loop that loops backwards printing 3 to 0 to the console. Use the >= comparison operator in your stopping condition and the -- operator in your iteration statement.
+for (let counter = 3; counter >= 0; counter--){
+  console.log(counter);
+}
+
+for(let i = 3; i >= 0; i--) {
+  // console.log(i);
+}
+
+
+// Write a for loop that iterates through our vacationSpots array using i as the iterator variable.         Inside the block of the for loop, use console.log() to log each element in the vacationSpots array after the string 'I would love to visit '. For example, the first round of the loop should print 'I would love to visit Bali' to the console.          When writing/changing loops, there is a chance that our stopping condition isn’t met and we get a dreaded infinite loop which essentially stops our programming from running anything else! To exit out of an infinite loop in an exercise, refresh the page - then fix the code for your loop.
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+
+for (let i = 0; i < vacationSpots.length; i++) {
+  console.log(`I would love to visit ${vacationSpots[i]}`);
+}
+
+// Imagine you’re a big-wig programmer for a social media platform! You have been tasked with building a prototype for a mutual followers program. You’ll need two arrays of “friends” from two mock users so that you can extract the names of the followers who exist in both lists. Make a variable called bobsFollowers and set it equal to an array with four strings representing the names of Bob’s friends.
+// Make a variable called tinasFollowers and set it equal to an array with three strings representing the names of Tina’s friends. Make exactly two of these the same as two of the friends in the bobsFollowers array.
+// Create a third variable named mutualFollowers and set it to an empty array.
+// Create a nested loop that iterates through bobsFollowers as the array for the outer loop and tinasFollowers as the array for the inner loop. If the current element from the outer loop is the same as the current element from the inner loop, push that element into the mutualFollowers array.
+let bobsFollowers  = ['Kofi', 'Mich', 'Menzo', 'Kwame'];
+let tinasFollowers = ['Ama','Kofi', 'Menzo'];
+let mutualFollowers = [];
+
+for(let i=0; i < bobsFollowers.length; i++) {
+  for(let j=0; j < tinasFollowers.length; j++){
+    if (bobsFollowers[i] === tinasFollowers[j]) {
+      mutualFollowers.push(tinasFollowers[j]);
+    }
+  }
+
+}
+console.log(mutualFollowers);
+
+
+const myArray = [6, 19, 20];
+const yourArray = [19, 81, 2];
+for (let i = 0; i < myArray.length; i++) {
+  for (let j = 0; j < yourArray.length; j++) {
+    if (myArray[i] === yourArray[j]) {
+      console.log('Both arrays have the number: ' + yourArray[j]);
+    }
+  }
+}
+
+
+
+// Below the cards array, declare a variable, currentCard, with the let keyword but don’t assign it a value.
+/* Create a while loop with a condition that checks if the currentCard does not have that value 'spade'.      Inside the block of your while loop, add the following line of code:
+// currentCard = cards[Math.floor(Math.random() * 4)];
+Math.floor(Math.random() * 4) will give us a random number from 0 to 3. We’ll use this number to index the cards array, and assign the value of currentCard to a random element from that array.        If you notice the Run button spinning continuously or a “Lost connection to Codecademy” message in an exercise, you may have an infinite loop! If the stop condition for our loop is never met, we will create an infinite loop which stops our program from running anything else. To exit out of an infinite loop in an exercise, refresh the page — then fix the code for your loop. */
+// Awesome! Your loop is running, but you can’t tell because it doesn’t output anything. Let’s add a console.log() statement to our while block. Inside the block, after you assign currentCard a new value, log currentCard to the console.       For fun you can run your code a few times and see how the output changes!
+const cards = ['diamond', 'spade', 'heart', 'club'];
+
+let currentCard 
+while (currentCard !== 'spade') {
+  currentCard = cards[Math.floor(Math.random() * 4)];
+  console.log(currentCard);
+}
+
+
+
+// We’d like a program to simulate part of the cake-baking process. Depending on the recipe, a different number of cups of sugar is required. Create the variable cupsOfSugarNeeded, and assign it a number value of your choosing.       The cups of sugar must be added to the batter one at a time. Declare the variable cupsAdded and assign it the value 0.
+// We have a sweet tooth, so we want to add at least one cup of sugar to the batter even if the value of cupsOfSugarNeeded is 0.       Create a do...while loop which increments cupsAdded by one while cupsAdded is less than cupsOfSugarNeeded.           In order to help us visualize the output on each iteration of the loop, add a console.log within the do...while block and log the value of cupsAdded.
+
+let cupsOfSugarNeeded = 4;
+
+let cupsAdded = 0;
+
+do {
+  cupsAdded = cupsAdded + cupsOfSugarNeeded;
+ cupsAdded++;
+ console.log(cupsAdded + ' cups was added');
+} while (cupsAdded < cupsOfSugarNeeded);
+
+// do ... while statement syntax
+let countString = '';
+let i = 0;
+
+do {
+  countString = countString + i;
+  i++;
+} while (i < 5);
+console.log(countString);
+
+
+const firstMessage = 'I will print!';
+const secondMessage = 'I will not print!'; 
+
+// A do ... while with a stopping condition that evaluates to false
+
+do {
+ console.log(firstMessage)
+} while (true === false){
+  console.log(secondMessage)
+};
+
+
+
+// Log each element from rapperArray in a for loop with the iterator variable i.
+// After the for loop, log the string "And if you don't know, now you know." to the console. Note: since there’s a single quote character, ', in our string, we can use double quotes around the string to make sure character prints.
+// Add a break inside your loop’s block that breaks out of the loop if the element at the current index in the rapperArray is 'Notorious B.I.G.'.    Log the element before breaking out of the loop.
+
+// break keyword syntax below
+// for (let i = 0; i < 99; i++) {
+//   if (i > 2 ) {
+//      break;
+//   }
+//   console.log('Banana.');
+// }
+// console.log('Orange you glad I broke out the loop!');
+
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+
+for (let i = 0; i < rapperArray.length; i++) {
+  console.log(rapperArray[i]);
+  if (rapperArray[i] === 'Notorious B.I.G.') {
+    break;
+  }
+}
+console.log("And if you don't know, now you know.")
+
+// self test below
+let groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+groceryList.push('Kiwi');
+groceryList.pop();
+console.log(groceryList);
