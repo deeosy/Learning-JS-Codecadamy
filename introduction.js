@@ -787,10 +787,10 @@ for(let i = 3; i >= 0; i--) {
 
 
 // Write a for loop that iterates through our vacationSpots array using i as the iterator variable.         Inside the block of the for loop, use console.log() to log each element in the vacationSpots array after the string 'I would love to visit '. For example, the first round of the loop should print 'I would love to visit Bali' to the console.          When writing/changing loops, there is a chance that our stopping condition isn’t met and we get a dreaded infinite loop which essentially stops our programming from running anything else! To exit out of an infinite loop in an exercise, refresh the page - then fix the code for your loop.
-const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+const vacationSpots1 = ['Bali', 'Paris', 'Tulum'];
 
-for (let i = 0; i < vacationSpots.length; i++) {
-  console.log(`I would love to visit ${vacationSpots[i]}`);
+for (let i = 0; i < vacationSpots1.length; i++) {
+  console.log(`I would love to visit ${vacationSpots1[i]}`);
 }
 
 // Imagine you’re a big-wig programmer for a social media platform! You have been tasked with building a prototype for a mutual followers program. You’ll need two arrays of “friends” from two mock users so that you can extract the names of the followers who exist in both lists. Make a variable called bobsFollowers and set it equal to an array with four strings representing the names of Bob’s friends.
@@ -904,3 +904,186 @@ let groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pas
 groceryList.push('Kiwi');
 groceryList.pop();
 console.log(groceryList);
+
+
+
+//Higher Up Functions 
+// We’ve defined a function with a very long name: checkThatTwoPlusTwoEqualsFourAMillionTimes(). This function takes a long time to execute. It checks whether 2 + 2 = 4, but it does it a million times (just to be really sure)!       Using const, declare a shorter-named variable, isTwoPlusTwo that will be easier to work with. Assign checkThatTwoPlusTwoEqualsFourAMillionTimes as its value.
+// Invoke your isTwoPlusTwo() function.
+// Hmmm, if we forgot the original name of our function. Is there a way we could figure it out?        Use isTwoPlusTwo to console.log() the name property of the function we assigned to isTwoPlusTwo.
+
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+// Write your code below
+const isTwoPlusTwo = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+
+isTwoPlusTwo();
+console.log(isTwoPlusTwo.name);
+
+
+
+// Here we have a function, addTwo(), that adds 2 to whatever is passed into it. Below that, we’ve created what will be a higher-order function, checkConsistentOutput(). The purpose of the higher-order function will be to check the work of addTwo(). Let’s get started!   To begin, inside the body of checkConsistentOutput(), declare two variables: checkA and checkB:        checkA stores the sum val plus 2.            checkB stores the invocation of the func callback, with val as the argument.
+// Next, below the variables, write a conditional statement that checks if the value of checkA is equal to the value checkB. If true, return the result of the callback function. If false, return the string 'inconsistent results'.
+// Finally, using console.log(), log the invocation of checkConsistentOutput() with two arguments: the addTwo() function and any number.
+const addTwo = num => {
+  return num + 2;
+}
+
+const checkConsistentOutput = (func, val) => {
+let checkA = val + 2;
+let checkB = func(val);
+
+if (checkA === checkB) { return func(val); } 
+else { return 'inconsistent results'; }
+}
+
+console.log(checkConsistentOutput(addTwo, 10));
+ 
+const higherOrderFunc = (param) => {
+  // param();
+  return `I just invoked ${param.name} as a callback function!`
+}
+ 
+const anotherFunc = () => {
+  return 'I\'m being invoked by the higher-order function!';
+}
+
+console.log(higherOrderFunc(anotherFunc));
+
+
+//  Iterators some types of Iterators below. 
+// the    .forEach() method 
+
+// Iterate over the fruits array to log I want to eat a plus the name of each fruit to the console. For example, I want to eat a mango.    You may use any form of callback you prefer.
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+let fruitName = (fruit) => {console.log('I want to eat a ' + fruit)};
+fruits.forEach(fruitName);
+
+const groceries = ['brown sugar', 'salt', 'cranberries', 'walnuts'];
+
+// groceries.forEach(function (groceryItem) {
+//   console.log( ' - ' + groceryItem);
+// });
+// // arrow function method
+// groceries.forEach(groceryItem => console.log(groceryItem));
+
+// function groceryItem(items){
+//   console.log(items);
+// }
+// // using arrow function method below
+let groceryItem = (items) => {console.log('I would also like to buy these ' + items)};
+groceries.forEach(groceryItem);
+
+
+// the    .map() method
+// Add your code under the animals array and before the line console.log(secretMessage.join(''));     Use .map() to create a new array that contains the first character of each string in the animals array. Save the new array to a const variable named secretMessage.
+// Use .map() to divide all the numbers in bigNumbers by 100. Save the returned values to a variable declared with const called smallNumbers.
+const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+
+const secretMessage = animals.map(animals => {return animals[0];})
+
+console.log(secretMessage.join(''));
+
+const bigNumbers = [100, 200, 300, 400, 500];
+const smallNumbers = bigNumbers.map(bigNumbers => {return bigNumbers/100;})
+console.log(smallNumbers)
+
+
+// the    .filter() method
+// Call the .filter() method on randomNumbers to return values that are less than 250. Save them to a new array called smallNumbers, declared with const.
+// Now let’s work with an array of strings. Invoke .filter() on the favoriteWords array to return elements that have more than 7 characters. Save the returned array to a const variable named longFavoriteWords.
+
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+
+const smallNumbers = randomNumbers.filter(smallNum => smallNum < 250);
+console.log(smallNumbers);
+
+const favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
+
+const longFavoriteWords = favoriteWords.filter(longWords => longWords.length > 7);
+console.log(longFavoriteWords)
+
+const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+const shortWords = words.filter(word => { return word.length < 6; });
+
+
+// the    .findIndex() method
+// Invoke .findIndex() on the animals array to find the index of the element that has the value 'elephant' and save the returned value to a const variable named foundAnimal.
+// Let’s see if we can find the index of the first animal that starts with the letter 's'.        Call .findIndex() on the animals array and return the index of the first element that starts with 's'. Assign the returned value to a const variable named startsWithS.
+const animals = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
+
+const foundAnimal = animals.findIndex( animalSearch => {return animalSearch === 'elephant';});
+console.log(foundAnimal);
+
+const startsWithS = animals.findIndex( s => {return (s[0] === 's');} );
+console.log(startsWithS);
+
+
+// the    .reduce() method
+// Let’s practice calling .reduce() and using console.log() to check the values as .reduce() iterates through the array.       In main.js, there is an array of numbers, newNumbers.       To start, declare a new variable named newSum using the const keyword. Assign to newSum the value of calling .reduce() on newNumbers. You don’t need to provide any arguments to .reduce() yet.           You’ll also see a TypeError: undefined is not a function but we’ll fix that after we add our callback function in the next step!
+// Provide .reduce with an argument of a callback function. The callback function has two parameters. The first parameter is accumulator and the second parameter is currentValue. Use either a function expression or an arrow function.
+// To check the value being used as we iterate through the array, add three statements to the function body of the callback:
+// console.log('The value of accumulator: ', accumulator);
+// console.log('The value of currentValue: ', currentValue);
+// a return statement that adds accumulator to currentValue.
+
+const newNumbers = [1, 3, 5, 7];
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+console.log('The value of accumulator: ', accumulator);
+console.log('The value of currentValue: ', currentValue);
+return accumulator + currentValue;
+}, 10);
+console.log(newSum);
+
+
+// the    .some() method
+// In the code editor, there is an array called words. We want to create a new array of interesting words. The first thing we want to do is check if there are words that are fewer than 6 characters long. There is something missing in the words.some() method call. Fix this method so that true is printed to the console.
+// The .some() method returned true, which means there are some words in the array that are shorter than six characters. Use the .filter() method to save any words longer than 5 characters to a new variable called interestingWords, declared with const.
+// In the last line of main.js, there is this code:   // console.log(interestingWords.every(word =>        ));      Complete the code between the parentheses to check if every element has more than 5 characters.        Make sure to uncomment (delete the // before) the last line of the program before you run the code
+
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+console.log(words.some((word) => { return word.length < 6; }));
+
+const interestingWords = words.filter((word) => {return word.length > 5;});
+
+console.log(interestingWords.every((word) => {return word.length > 5} ));
+
+
+
+// Replace the word method in the first method call with a method that will do something to each of the values in the array and return undefined.
+// In the second method call, replace the word method with a method that will return a new array with only those elements longer than 7 characters.
+// In the third method call, replace the word method with a method that accepts an array containing multiple values and returns a single value.
+// In the fourth method call, replace the word method with a method that will return a new array of numbers returned from the function.
+// In the fifth method call, replace the word method with a method that will return a boolean value.
+
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+
+//  Choose a method that will return undefined
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+
+// Choose a method that will return a new array
+const longCities = cities.filter(city => city.length > 7);
+
+// Choose a method that will return a single value
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+
+console.log(word)
+
+// Choose a method that will return a new array
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+nums.some(num => num < 0);
