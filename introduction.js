@@ -985,9 +985,9 @@ groceries.forEach(groceryItem);
 // the    .map() method
 // Add your code under the animals array and before the line console.log(secretMessage.join(''));     Use .map() to create a new array that contains the first character of each string in the animals array. Save the new array to a const variable named secretMessage.
 // Use .map() to divide all the numbers in bigNumbers by 100. Save the returned values to a variable declared with const called smallNumbers.
-const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+const animals1 = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
 
-const secretMessage = animals.map(animals => {return animals[0];})
+const secretMessage = animals1.map(animals => {return animals[0];})
 
 console.log(secretMessage.join(''));
 
@@ -1002,17 +1002,17 @@ console.log(smallNumbers)
 
 const randomNumbers = [375, 200, 3.14, 7, 13, 852];
 
-const smallNumbers = randomNumbers.filter(smallNum => smallNum < 250);
-console.log(smallNumbers);
+const smallNumbers1 = randomNumbers.filter(smallNum => smallNum < 250);
+console.log(smallNumbers1);
 
 const favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
 
 const longFavoriteWords = favoriteWords.filter(longWords => longWords.length > 7);
 console.log(longFavoriteWords)
 
-const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+const words1 = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
 
-const shortWords = words.filter(word => { return word.length < 6; });
+const shortWords = words1.filter(word => { return word.length < 6; });
 
 
 // the    .findIndex() method
@@ -1087,3 +1087,246 @@ const smallerNums = nums.map(num => num - 5);
 
 // Choose a method that will return a boolean value
 nums.some(num => num < 0);
+
+
+
+//Objects: creating objects literals
+// The spaceship we have so far looks good but, unfortunately, is not very fast at hyperspace travel due to having an inferior fuel source. Make a new spaceship object named fasterShip with the same color as spaceship but with a Fuel Type equal to 'Turbo Fuel'.
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+
+let fasterShip = {
+  'Fuel Type': 'Turbo Fuel',
+  'color': 'silver',
+}
+
+
+// Let’s use the dot operator to access the value of numCrew from the spaceship object in the code editor. Create a variable crewCount and assign the spaceship‘s numCrew property to it.
+// Again using the dot operator, create a variable planetArray and assign the spaceship‘s flightPath property to it.
+let spaceship = {
+  homePlanet: 'Earth',
+  color: 'silver',
+  'Fuel Type': 'Turbo Fuel',
+  numCrew: 5,
+  flightPath: ['Venus', 'Mars', 'Saturn']
+};
+
+// Write your code below
+let crewCount = spaceship.numCrew;
+let planetArray = spaceship.flightPath;
+console.log(planetArray);
+
+
+// Let’s use bracket notation to access the value of 'Active Mission' from the spaceship object in the code editor. Create a variable isActive and assign the spaceship‘s 'Active Mission' property to it.
+// Using bracket notation and the propName variable provided, console.log() the value of the 'Active Mission' property.
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  'Active Mission' : true,
+  homePlanet : 'Earth', 
+  numCrew: 5
+ };
+
+let returnAnyProp = (objectName, propName) => objectName[propName];
+ 
+console.log(returnAnyProp(spaceship, 'homePlanet'));
+// let propName =  'Active Mission';
+
+// Write your code below
+// let isActive = spaceship['Active Mission'];
+// console.log(isActive);
+
+let isActive = (objectName, propName) => objectName[propName];
+console.log(isActive(spaceship, 'Fuel Type'));
+
+
+
+// Reassign the color property of the spaceship object to have a value of 'glorious gold'
+// Without changing lines 1 - 6, add a numEngines property with a numeric value between 1 and 10 to the spaceship object.
+// Use the delete operator to remove the 'Secret Mission' property from the spaceship object.
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth',
+  color: 'silver',
+  'Secret Mission' : 'Discover life outside of Earth.'
+};
+
+// Write your code below
+spaceship.color = 'glorious gold';
+spaceship.numEngines = 4;
+delete spaceship['Secret Mission'];
+console.log(spaceship);
+
+
+
+// Below the retreatMessage variable in the code editor, create an alienShip object. It should contain a method retreat() which will console.log() the retreatMessage.
+// Add another method to your object literal. This method, takeOff(), should console.log() the string 'Spim... Borp... Glix... Blastoff!'.
+// Invoke your two methods: first .retreat() then .takeOff().
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+
+// Write your code below
+const alienShip = {
+  retreat: function () {
+    console.log('We no longer wish to conquer your planet. It is full of dogs, which we do not care for.');
+  },
+  takeOff () {
+    console.log('Spim... Borp... Glix... Blastoff!');
+  },
+};
+
+alienShip.retreat();
+alienShip.takeOff();
+
+
+
+// Create a variable capFave and assign the captain‘s favorite food (the element in the 0th index of her 'favorite foods' array) to it. Make sure to use bracket and dot notation to get the value of the food through nested access (don’t just copy the value into the variable!)
+// Right now the passengers property has a value of null. Instead, assign as its value an array of objects. These objects should represent the spaceship‘s passengers as individual objects. Make at least one passenger object in the array that has at least one key-value pair on it.
+// Create a variable firstPassenger and assign the first passenger as its value (the element in the 0th index of the spaceship.passengers array you just made). Make sure to use bracket and dot notation to get the passenger object through nested access (don’t just copy the object into the variable!)
+let spaceship = {
+  passengers: null,
+  telescope: {
+    yearBuilt: 2018,
+    model: "91031-XLT",
+    focalLength: 2032 
+  },
+  crew: {
+    captain: { 
+      name: 'Sandra', 
+      degree: 'Computer Engineering', 
+      encourageTeam() { console.log('We got this!') },
+     'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+  },
+  engine: {
+    model: "Nimbus2000"
+  },
+  nanoelectronics: {
+    computer: {
+      terabytes: 100,
+      monitors: "HD"
+    },
+    'back-up': {
+      battery: "Lithium",
+      terabytes: 50
+    }
+  }
+}; 
+
+let capFave = spaceship.crew.captain['favorite foods'][0];
+console.log(capFave);
+
+spaceship.passengers = [{
+  mate: 'Derreck',
+  degree: 'NASA Space Program',
+}, {
+  enginer: 'Peter',
+  degree: 'Mecahnical Engineering',
+}];
+
+let firstPassenger = spaceship.passengers[0];
+
+
+
+// // example below
+// const spaceship = {
+//      telescope: {
+//         yearBuilt: 2018,
+//         model: '91031-XLT',
+//         focalLength: 2032 
+//      },
+//     crew: {
+//         captain: { 
+//             name: 'Sandra', 
+//             degree: 'Computer Engineering', 
+//             encourageTeam() { console.log('We got this!') } 
+//          }
+//     },
+//     engine: {
+//         model: 'Nimbus2000'
+//      },
+//      nanoelectronics: {
+//          computer: {
+//             terabytes: 100,
+//             monitors: 'HD'
+//          },
+//         'back-up': {
+//            battery: 'Lithium',
+//            terabytes: 50
+//          }
+//     }
+// }; 
+// spaceship.crew.captain.encourageTeam();
+
+
+
+// Write a function greenEnergy() that has an object as a parameter and sets that object’s 'Fuel Type' property to 'avocado oil'.
+// Write a function remotelyDisable() that has an object as a parameter and sets (or reassigns) that object’s disabled property to true
+// Call your two functions with the spaceship object in the code editor, then console.log() the spaceship object to confirm those properties were changed/added.
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth'
+};
+
+// Write your code below
+let greenEnergy = obj => {
+  obj['Fuel Type'] = 'avocado oil';
+};
+greenEnergy(spaceship);
+
+let remotelyDisable = obj => {
+  obj.disabled = true;
+}
+remotelyDisable(spaceship);
+
+console.log(spaceship);
+
+// const spaceship = {
+//   homePlanet : 'Earth',
+//   color : 'silver'
+// };
+ 
+// let paintIt = obj => {
+//   obj.color = 'glorious gold'
+// };
+// paintIt(spaceship);
+
+// console.log(spaceship.color);
+
+
+// Using for...in, iterate through the spaceship.crew object in the code editor and console.log() a list of crew roles and names in the following format: '[crew member's role]: [crew member's name]', e.g.,'chief officer: Dan'.
+// Using for...in, iterate through the spaceship.crew object in the code editor and console.log() a list of crew names and degrees in the following format: '[crew member's name]: [crew member's degree]', i.e.,'Lily: Computer Engineering'.
+let spaceship = {
+  crew: {
+  captain: { 
+      name: 'Lily', 
+      degree: 'Computer Engineering', 
+      cheerTeam() { console.log('You got this!') } 
+      },
+  'chief officer': { 
+      name: 'Dan', 
+      degree: 'Aerospace Engineering', 
+      agree() { console.log('I agree, captain!') } 
+      },
+  medic: { 
+      name: 'Clementine', 
+      degree: 'Physics', 
+      announce() { console.log(`Jets on!`) } },
+  translator: {
+      name: 'Shauna', 
+      degree: 'Conservation Science', 
+      powerFuel() { console.log('The tank is full!') } 
+      }
+  }
+}; 
+
+// Write your code below
+for(let crewMember in spaceship.crew){
+console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+};
+
+for(let crewMember in spaceship.crew){
+  console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`)
+}
+
+
+

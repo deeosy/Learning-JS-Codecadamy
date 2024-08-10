@@ -55,12 +55,33 @@
     // console.log(x);
 
 
-    let a = 0;
-    while (a < 5) {
+    // let a = 0;
+    // while (a < 5) {
       
-      console.log(a);
-      a++; 
+    //   console.log(a);
+    //   a++; 
+    // }
+
+    // function add2Numbers (a, b) {
+    //   let result = a + b;
+    //   return result;
+    // }
+
+    let add2Numbers = (a, b) => {
+      let result = a + b;
+      return result;
     }
+
+    console.log(add2Numbers(2,5));
+
+    let name = prompt('please enter your name');
+    let confirmName = confirm('Are you sure this is your name?');
+    document.write(name);
+  
+    // learning about the confirm  keyword
+    let exitGame = confirm('Are you sure u want to Exit Game?');
+    let closePage = confirm('Are you sure u want to leave this page?');
+  
 
   </script>
 </body>
